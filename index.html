@@ -1,32 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Photo Gallery</title>
     <!-- Link in the style sheet -->
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://unpkg.com/css.gg@2.0.0/icons/css/search.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <!-- Set up the main page-->
-    <h1>Photo Gallery</h1>
-
-    <!-- Create a form for search term with button to register input -->
-    <form action="">
-        <input type="text" id="search-input" placeholder= "Start typing to search for images">
-        <button id="search-button">Search</button>
-    </form>
-
-
-    <div class="search-results">
-        <div class="search-result">
-            <img src
-        </div>
+    <div class="header">
+      <h1>Nat's Photo Gallery</h1>
+      <!-- Create a form for search term with button to register input -->
+      <form action="">
+        <input type="text" id="search-input" placeholder="Search for images" />
+        <button id="search-button"><i class="gg-search"></i></button>
+      </form>
     </div>
+
+    <!-- Setting up the random standard images upon entry to the gallery -->
+    <div class="search-results">
+      <div class="search-result">
+        <img
+          lazy-data="https://source.unsplash.com/random/?universe"
+          alt="sample image"
+        />
+        <a href="https://unsplash.com/photos/4K_x--J2Jbc" target="_blank"
+          >Generate any images</a
+        >
+      </div>
+      <div class="search-result">
+        <img
+          lazy-data="https://source.unsplash.com/random/?stars,night"
+          alt="sample image"
+        />
+        <a href="https://unsplash.com/photos/4K_x--J2Jbc" target="_blank"
+          >Based on your search results</a
+        >
+      </div>
+      <div class="search-result">
+        <img
+          lazy-data="https://source.unsplash.com/random/?planets"
+          alt="sample image"
+        />
+        <a href="https://unsplash.com/photos/4K_x--J2Jbc" target="_blank"
+          >Using the above search bar</a
+        >
+      </div>
+    </div>
+
+    <button id="view-more-button">No more images to show</button>
+
     <!-- Linking up the javascript file-->
-    <script src="script.js"> </script>
-
-
-    
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
