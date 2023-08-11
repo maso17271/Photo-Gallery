@@ -1,0 +1,12 @@
+body{
+    background-color: slategray;
+}
+
+h1{
+    color: black;
+    text-align: center;
+    margin: 30px;
+}
+p{
+    text-align: center;
+}
