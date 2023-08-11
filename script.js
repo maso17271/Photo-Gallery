@@ -128,7 +128,7 @@ searchBar.addEventListener("submit", (event) => {
 window.addEventListener("scroll", () => {
   if (
     !homepage &&
-    window.scrollY + window.innerHeight >= document.documentElement.scrollHeight
+    window.scrollY + window.innerHeight + 20 >= document.documentElement.scrollHeight
   ) {
     // search image if reach the end of the page
     searchImages();
