@@ -27,6 +27,10 @@ let page = 1;
 async function searchImages() {
   // determine the search term from the user input
   userInput = inputElement.value;
+  // prevent clearing the gallery on no input
+  if (userInput === "") {
+    return;
+  }
   // set up the url for pulling images
   // use variables to set what is queried and what page of results
   const url = `https://api.unsplash.com/search/photos?page=${page}&query=${userInput}&client_id=${accessKey}`;
