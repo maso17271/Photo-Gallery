@@ -13,9 +13,6 @@ const searchResults = document.querySelector(".search-results");
 // No more images button
 const noMore = document.getElementById("no-more-button");
 
-// attempt at lazy loading
-const targets = document.querySelectorAll("img");
-
 // store user input
 let userInput = "";
 
@@ -97,12 +94,6 @@ async function searchImages() {
     // increment the page number
     page++;
 
-    // show the view more button if page is higher than one
-    /* No longer needed with infinite scroll
-        if(page > 1){
-                showMore.style.display = "block"
-        }
-        */
     // provide a button to show that no more images can be loaded.
   } catch (error) {
     console.error("There was an error loading images:", error);
@@ -135,43 +126,3 @@ window.addEventListener("scroll", () => {
   }
 });
 
-/* Button to load images if preferred 
-showMore.addEventListener("click", () =>{
-        searchImages();
-});
-*/
-
-// attempted lazy load function using target parameter
-const lazyLoad = (target) => {
-  // create instance of the IntersectionObserver API
-  const io = new IntersectionObserver((entries, observer) => {
-    // loop through all entries within entry
-    entries.forEach((entry) => {
-      // check if ing intersects with target
-      if (entry.isIntersecting) {
-        //retrieve observed image
-        const img = entry.target;
-        // set the source
-        const src = img.getAttribute("lazy-data");
-        // setting src of img to lazy-data value
-        img.setAttribute("src", src);
-        //add "fade" effect
-        img.classList.add("fade");
-        // stop observing once loaded
-        observer.unobserve(img);
-      }
-    });
-  });
-  // observe the target image
-  io.observe(target);
-};
-
-// iterate over each image and call lazyload
-targets.forEach(lazyLoad);
-
-// defined function to use within search image loop
-const lazyLoadImagesInResults = () => {
-  const newImages = searchResults.querySelectorAll("img[lazy-data]:not(.fade)");
-  newImages.forEach(lazyLoad);
-  // console.log("this has run");
-};
